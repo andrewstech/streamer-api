@@ -118,7 +118,7 @@ def search():
 def version():
     result = {
         'youtube-dl': youtube_dl_version,
-        'youtube-dl-api-server': __version__,
+        'version': __version__,
     }
     return jsonify(result)
 
