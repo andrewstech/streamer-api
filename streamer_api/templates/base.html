@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+    <!-- THis Html has been taken from https://appseed.us/admin-dashboards/django-dashboard-dattaable -->
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="canonical" href="https://appseed.us/admin-dashboards/django-dashboard-dattaable">
+    
+    <meta name="description" content="Alpha-Video" />
+    <meta name="author" content="unofficial-skills"/>
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="https://raw.githubusercontent.com/unofficial-skills/addons/main/alpha-video/icon.png" type="image/x-icon">
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="https://appsrv1-147a1.kxcdn.com/dattaable/fonts/fontawesome/css/fontawesome-all.min.css">
+    <!-- animation css -->
+    <link rel="stylesheet" href="https://appsrv1-147a1.kxcdn.com/dattaable/plugins/animation/css/animate.min.css">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="https://appsrv1-147a1.kxcdn.com/dattaable/css/style.css">
+
+    <!-- Specific CSS goes HERE -->
+    
+
+</head>
+
+<body>
+    
+       
+
+    <div class="auth-wrapper">
+        <div class="auth-content">
+            <div class="auth-bg">
+                <span class="r"></span>
+                <span class="r s"></span>
+                <span class="r s"></span>
+                <span class="r"></span>
+            </div>
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        
+                    </div>
+                    <nav class="navbar navbar-expand-md navbar-light bg-light">
+						<a class="navbar-brand" href="https://alpha-video.andrewstech.me/docs/beta">ALPHA-VIDEO</a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarNav">
+							<ul class="navbar-nav">
+							<li class="nav-item active">
+								<a class="nav-link" href="https://alpha-video.andrewstech.me/docs/beta">Docs</a>
+							</li>
+							</ul>
+						</div>
+					</nav>
+					<div class="container">
+						{% for message in get_flashed_messages() %}
+							<div class="alert alert-danger">{{ message }}</div>
+						{% endfor %}
+						{% block content %} {% endblock %}
+					</div>
+
+                    <br />
+                    <br />
+
+                    
+
+                    <p class="mb-0 text-muted">Discord <a href="https://discord.gg/2mCKgev5w9" >Click Here</a></p>
+                    <br />
+                    <p class="mb-2 text-muted">
+                        &copy; <a target="_blank" href="https://github.com/unofficial-skills/">unofficial-skills</a> 
+                        .
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+    <!-- Required Js -->
+    <script src="https://appsrv1-147a1.kxcdn.com/dattaable/js/vendor-all.min.js"></script>
+    <script src="https://appsrv1-147a1.kxcdn.com/dattaable/plugins/bootstrap/js/bootstrap.min.js"></script>
+    
+
+
+    <!-- Specific Page JS goes HERE  -->
+        
+
+</body>
+</html>
