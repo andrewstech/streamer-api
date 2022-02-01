@@ -3,7 +3,7 @@ import logging
 import traceback
 import sys
 
-from flask import Flask, Blueprint, current_app, jsonify, request, redirect, abort, render_template
+from flask import Flask, Blueprint, current_app, jsonify, request, redirect, abort, render_template, url_for, flash, redirect, Response
 import youtube_dl
 from youtube_dl import YoutubeDL
 from youtube_dl.version import __version__ as youtube_dl_version
@@ -119,7 +119,12 @@ def info():
     video_details = ytdlv.extract_info(url, download=False)
     print(url)
     return jsonify(video_details)
-    
+
+@route_api('/proxy/<path:url>')
+@set_access_control
+def proxy(url):
+    req = requests.get(url, stream = True)
+    return Response(stream_with_context(req.iter_content(chunk_size=1024)), content_type = req.headers['content-type'])
 
 @route_api('version')
 @set_access_control
@@ -135,6 +140,14 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'),404
+
+@app.errorhandler(405)
+def not_found_error(error):
+    return render_template('405.html'),405
 
 app.register_blueprint(api)
 app.config.from_pyfile('../application.cfg', silent=True)
