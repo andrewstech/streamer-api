@@ -126,7 +126,7 @@ def info():
     '-e': True,
     }
     ydl = youtube_dl.YoutubeDL(ydl_opts)
-    video_details = ydl.extract_info('{url}', download=False)
+    video_details = ydl.extract_info({url}, download=False)
     return jsonify(video_details)
     
 
