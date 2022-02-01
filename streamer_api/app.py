@@ -116,17 +116,8 @@ def search():
 @set_access_control
 def info():
     url = request.args['url']
-    ydl_opts = {
-    '-v': True,
-    'format': '-f',
-    'print_json': True,
-    'listformats': '--list-formats',
-    'getfilename': '--get-filename',
-    '--get-filename': True,
-    '-e': True,
-    }
-    ydl = youtube_dl.YoutubeDL(ydl_opts)
-    video_details = ydl.extract_info(url, download=False)
+    video_details = ytdlv.extract_info(url, download=False)
+    print(url)
     return jsonify(video_details)
     
 
