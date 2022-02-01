@@ -2,6 +2,7 @@ import functools
 import logging
 import traceback
 import sys
+import requests
 
 from flask import Flask, Blueprint, current_app, jsonify, request, redirect, abort, render_template, url_for, flash, redirect, Response
 import youtube_dl
