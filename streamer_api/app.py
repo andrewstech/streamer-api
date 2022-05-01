@@ -128,7 +128,15 @@ def emebed():
   data = ytdlv.extract_info(f"ytsearch5:{search}", download=False)
   search_results = data['entries']
   result = search_results[0]
-  return jsonify(result)
+  video_name = result['title']
+  channel_name = result['uploader']
+  Embed_URL = "https://www.youtube.com/embed/"
+  ID = data['entries'][0]['webpage_url_basename']
+  Embed_URL_FULL = Embed_URL + ID
+  searchr = "Embed ID", ID, "Video Name", video_name, "Channel", channel_name, "Embed URL", Embed_URL_FULL
+  return jsonify(searchr)
+
+
 
 @route_api('/proxy/<path:url>')
 @set_access_control
