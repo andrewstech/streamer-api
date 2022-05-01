@@ -121,6 +121,15 @@ def info():
     print(url)
     return jsonify(video_details)
 
+@route_api('embed')
+@set_access_control
+def emebed():
+  search = request.args['search']
+  data = ytdlv.extract_info(f"ytsearch5:{search}", download=False)
+  search_results = data['entries']
+  result = search_results[0]
+  return jsonify(result)
+
 @route_api('/proxy/<path:url>')
 @set_access_control
 def proxy(url):
