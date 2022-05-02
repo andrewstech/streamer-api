@@ -5,7 +5,7 @@ import sys
 import requests
 import json
 
-from flask import Flask, Blueprint, current_app, jsonify, request, redirect, abort, render_template, url_for, flash, redirect, Response
+from flask import Flask, Blueprint, current_app, jsonify, request, redirect, abort, render_template, url_for, flash, redirect, Response, stream_with_context
 import youtube_dl
 from youtube_dl import YoutubeDL
 from youtube_dl.version import __version__ as youtube_dl_version
@@ -137,7 +137,7 @@ def emebed():
   ID = data['entries'][0]['webpage_url_basename']
   Embed_URL_FULL = Embed_URL + ID
   Watch_URL_FULL = Watch_URL + ID
-  Embed = {"Embed-ID": ID, "Video-Name": video_name, "Channel": channel_name, "Embed-URL": Embed_URL_FULL, "Video-URL": Watch_URL_FULL
+  Embed = {"EmbedId": ID, "VideoName": video_name, "Channel": channel_name, "EmbedUrl": Embed_URL_FULL, "VideoUrl": Watch_URL_FULL
   }
   return jsonify(Embed)
 
