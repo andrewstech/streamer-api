@@ -3,6 +3,7 @@ import logging
 import traceback
 import sys
 import requests
+import json
 
 from flask import Flask, Blueprint, current_app, jsonify, request, redirect, abort, render_template, url_for, flash, redirect, Response
 import youtube_dl
@@ -130,11 +131,15 @@ def emebed():
   result = search_results[0]
   video_name = result['title']
   channel_name = result['uploader']
+  description= data['entries'][0]['description']
   Embed_URL = "https://www.youtube.com/embed/"
+  Watch_URL = "https://www.youtube.com/watch?v="
   ID = data['entries'][0]['webpage_url_basename']
   Embed_URL_FULL = Embed_URL + ID
-  searchr = "Embed ID", ID, "Video Name", video_name, "Channel", channel_name, "Embed URL", Embed_URL_FULL
-  return jsonify(searchr)
+  Watch_URL_FULL = Watch_URL + ID
+  Embed = {"Embed-ID": ID, "Video-Name": video_name, "Channel": channel_name, "Embed-URL": Embed_URL_FULL, "Video-URL": Watch_URL_FULL
+  }
+  return jsonify(Embed)
 
 
 
